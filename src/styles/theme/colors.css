@@ -1,0 +1,53 @@
+/* src/styles/theme/colors.css */
+
+/* Semantic Text Color Utilities */
+.analytics-text-primary {
+  color: var(--graph-text-primary);
+}
+
+.analytics-text-secondary {
+  color: var(--graph-text-secondary);
+}
+
+.analytics-text-muted {
+  color: var(--graph-text-muted);
+}
+
+/* Functional Background Utilities */
+.analytics-bg-main {
+  background-color: var(--graph-bg);
+}
+
+.analytics-bg-hover {
+  background-color: var(--graph-zone-hover-bg);
+}
+
+.analytics-bg-tooltip {
+  background-color: var(--graph-tooltip-bg);
+  color: var(--graph-tooltip-text);
+}
+
+/* Dynamic Series Mapping Utility Classes */
+.analytics-series-color-0 { --bar-color: var(--graph-series-0); }
+.analytics-series-color-1 { --bar-color: var(--graph-series-1); }
+.analytics-series-color-2 { --bar-color: var(--graph-series-2); }
+.analytics-series-color-3 { --bar-color: var(--graph-series-3); }
+.analytics-series-color-4 { --bar-color: var(--graph-series-4); }
+
+/* Threshold Line Color Variants */
+.analytics-threshold-line[data-variant="default"] {
+  border-top-color: var(--graph-text-muted);
+}
+
+.analytics-threshold-line[data-variant="muted"] {
+  border-top-color: var(--graph-grid-line);
+}
+
+.analytics-threshold-line[data-variant="emphasis"] {
+  border-top-color: var(--graph-threshold-solid);
+}
+
+/* Alpha channel adjustments using color-mix for interactive overlays */
+.analytics-overlay-interactive {
+  background-color: color-mix(in srgb, var(--graph-zone-focus-ring) 8%, transparent);
+}

@@ -1,0 +1,32 @@
+/* src/styles/theme/shadows.css */
+
+/* Component Elevation Layers */
+.analytics-shadow-container {
+  box-shadow: var(--graph-shadow-container);
+}
+
+.analytics-shadow-tooltip {
+  box-shadow: var(--graph-shadow-tooltip);
+}
+
+/* Interaction Overlay Shadows */
+.analytics-shadow-zone-hover {
+  box-shadow: var(--graph-shadow-zone-hover);
+}
+
+/* Internal Depth Masking for Bars */
+.analytics-shadow-bar-inset {
+  box-shadow: inset -1px -1px 2px 0px rgba(0, 0, 0, 0.05);
+}
+
+.analytics-shadow-bar-glare {
+  box-shadow: inset 1px 1px 0px 0px rgba(255, 255, 255, 0.15);
+}
+
+/* Real-time Focus/Active State Elevation Glow */
+.analytics-shadow-focus-glow {
+  box-shadow:
+    0 0 0 var(--graph-focus-ring-width) var(--graph-bg),
+    0 0 12px 2px
+      color-mix(in srgb, var(--graph-zone-focus-ring) 40%, transparent);
+}

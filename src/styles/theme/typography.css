@@ -1,0 +1,60 @@
+/* src/styles/theme/typography.css */
+
+/* Global Typography Structural Baseline */
+.analytics-font-base {
+  font-family: var(--graph-font-family);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Header & Title Hierarchy */
+.analytics-text-title {
+  font-size: var(--graph-font-title-size);
+  font-weight: var(--graph-font-title-weight);
+  color: var(--graph-text-primary);
+  line-height: 1.25;
+}
+
+.analytics-text-subtitle {
+  font-size: var(--graph-font-subtitle-size);
+  font-weight: 400;
+  color: var(--graph-text-secondary);
+  line-height: 1.4;
+}
+
+/* Axis & Legend Label Constraints */
+.analytics-text-axis-label {
+  font-size: var(--graph-font-axis-label-size);
+  font-weight: var(--graph-font-axis-label-weight);
+  color: var(--graph-text-muted);
+  white-space: nowrap;
+  user-select: none;
+}
+
+.analytics-text-legend-label {
+  font-size: var(--graph-font-axis-label-size);
+  font-weight: 500;
+  color: var(--graph-text-secondary);
+  line-height: 1;
+}
+
+/* Tooltip & Micro-copy Scaling */
+.analytics-text-tooltip-value {
+  font-size: var(--graph-font-tooltip-size);
+  font-weight: 600;
+  font-family:
+    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
+  color: var(--graph-tooltip-text);
+}
+
+.analytics-text-tooltip-label {
+  font-size: var(--graph-font-tooltip-size);
+  font-weight: 400;
+  color: color-mix(in srgb, var(--graph-tooltip-text) 70%, transparent);
+}
+
+/* Monospace Tabular Alignment Overrides */
+.analytics-text-tabular {
+  font-variant-numeric: tabular-nums;
+}

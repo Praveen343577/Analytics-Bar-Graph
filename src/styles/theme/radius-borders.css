@@ -1,0 +1,43 @@
+/* src/styles/theme/radius-borders.css */
+
+/* Structural Corner Radius Utilities */
+.analytics-radius-container {
+  border-radius: var(--graph-radius-container);
+}
+
+.analytics-radius-zone {
+  border-radius: var(--graph-radius-zone-bg);
+}
+
+.analytics-radius-tooltip {
+  border-radius: var(--graph-radius-tooltip);
+}
+
+/* Explicit Focus Ring Architecture */
+.analytics-focus-target {
+  outline: none;
+}
+
+.analytics-focus-target:focus-visible,
+.analytics-focus-target[data-focused="true"] {
+  outline: var(--graph-focus-ring-width) var(--graph-focus-ring-style)
+    var(--graph-zone-focus-ring);
+  outline-offset: 2px;
+  z-index: 20; /* Elevates focused zone boundary above neighboring layouts */
+}
+
+/* Base High-Contrast Separation Borders */
+.analytics-border-separator-top {
+  border-top: var(--graph-grid-width) solid var(--graph-grid-line);
+}
+
+.analytics-border-separator-bottom {
+  border-bottom: var(--graph-grid-width) solid var(--graph-grid-line);
+}
+
+/* Secondary Interactive Focus Fallbacks (Color-independent indicator alignment) */
+.analytics-accessibility-border {
+  box-shadow:
+    0 0 0 var(--graph-focus-ring-width) var(--graph-bg),
+    0 0 0 calc(var(--graph-focus-ring-width) * 2) var(--graph-zone-focus-ring);
+}

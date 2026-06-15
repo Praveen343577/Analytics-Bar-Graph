@@ -1,0 +1,44 @@
+/* src/styles/theme/spacing.css */
+
+/* Core Component Padding */
+.analytics-padding-container {
+  padding: var(--graph-padding);
+}
+
+/* Structural Gap Utilities */
+.analytics-gap-zones {
+  gap: var(--graph-zone-gap);
+}
+
+.analytics-gap-bars {
+  gap: var(--graph-bar-gap);
+}
+
+/* Margin Layout Rules */
+.analytics-margin-header {
+  margin-bottom: var(--graph-header-margin-bottom);
+}
+
+.analytics-margin-legend {
+  margin-bottom: var(--graph-legend-margin-bottom);
+}
+
+/* Axis Offset Adjustments */
+.analytics-axis-spacing-y {
+  padding-right: var(--graph-axis-offset);
+}
+
+.analytics-axis-spacing-x {
+  height: var(--graph-axis-offset);
+}
+
+/* Rigid Metric Constraints */
+.analytics-bar-width-constrained {
+  width: 100%;
+  max-width: 32px;
+}
+
+.analytics-bar-width-stacked {
+  width: 100%;
+  max-width: 48px;
+}
