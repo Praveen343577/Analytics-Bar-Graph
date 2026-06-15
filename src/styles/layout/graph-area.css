@@ -1,0 +1,79 @@
+/* src/styles/layout/graph-area.css */
+
+.analytics-graph-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  background-color: var(--graph-bg);
+  border-radius: var(--graph-radius-container);
+  box-shadow: var(--graph-shadow-container);
+  padding: var(--graph-padding);
+  font-family: var(--graph-font-family);
+  color: var(--graph-text-primary);
+  transition: background-color var(--graph-motion-duration-base) var(--graph-motion-easing-standard);
+}
+
+/* Structural flex container decoupling the Y-Axis from the visual plotting area */
+.analytics-graph-area {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  width: 100%;
+  min-height: 240px; 
+}
+
+/* Y-Axis Layout */
+.analytics-y-axis {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-right: var(--graph-axis-offset);
+  user-select: none;
+}
+
+.analytics-y-axis-tick {
+  color: var(--graph-text-muted);
+  font-size: var(--graph-font-axis-label-size);
+  font-weight: var(--graph-font-axis-label-weight);
+  line-height: 0; 
+  /* Absolute vertical centering alignment against the structural grid lines */
+}
+
+/* The strict bounding box for Grid, Thresholds, and Zones */
+.analytics-graph-core {
+  position: relative;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Grid System Structure */
+.analytics-grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: var(--graph-axis-offset); /* Reserve bottom space for X-Axis text */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  pointer-events: none;
+}
+
+.analytics-grid-line {
+  width: 100%;
+  border-top-width: var(--graph-grid-width);
+  border-top-style: var(--graph-grid-style);
+  border-top-color: var(--graph-grid-line);
+  /* Alignment adjustment to perfectly match Y-Axis tick 0-line center */
+  transform: translateY(-50%);
+}
+
+.analytics-grid-line:last-child {
+  border-top-style: solid; /* Base axis line is solid to ground the bars */
+}

@@ -1,0 +1,45 @@
+/* src/styles/states/selection.css */
+
+/* Contextual dimming: When a selection exists, fade out non-selected zones */
+.analytics-graph-area[data-has-selection="true"]
+  .analytics-zone[data-selected="false"] {
+  opacity: 0.35;
+  filter: saturate(50%);
+  transition:
+    opacity var(--graph-motion-duration-base)
+      var(--graph-motion-easing-standard),
+    filter var(--graph-motion-duration-base) var(--graph-motion-easing-standard);
+}
+
+/* Maintain full prominence for selected zones and elevate z-index */
+.analytics-graph-area[data-has-selection="true"]
+  .analytics-zone[data-selected="true"] {
+  opacity: 1;
+  filter: saturate(100%);
+  z-index: 10;
+}
+
+/* Activate the localized background layer for selected zones */
+.analytics-zone[data-selected="true"] .analytics-zone-interaction-bg {
+  opacity: 1;
+  background-color: var(--graph-zone-hover-bg);
+  box-shadow: var(--graph-shadow-zone-hover);
+}
+
+/* X-Axis label emphasis for selected zones */
+.analytics-zone[data-selected="true"] .analytics-x-axis-content {
+  color: var(--graph-text-primary);
+  font-weight: 600; /* Shift from medium/500 to semi-bold/600 */
+}
+
+/* Enforce marker visibility if selected zone acts as the active anchor */
+.analytics-zone[data-selected="true"][data-active-anchor="true"]
+  .analytics-bar-marker {
+  opacity: 1;
+}
+
+/* Range Selection Ghosting (Visual feedback during Shift-Click multi-select) */
+.analytics-zone[data-in-range="true"] .analytics-zone-interaction-bg {
+  opacity: 0.5;
+  background-color: var(--graph-zone-hover-bg);
+}

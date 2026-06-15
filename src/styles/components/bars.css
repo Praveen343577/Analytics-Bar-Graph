@@ -1,0 +1,132 @@
+/* src/styles/components/bars.css */
+
+.analytics-bars-container {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: center;
+  gap: var(--graph-bar-gap);
+  width: 100%;
+  height: 100%;
+  z-index: 2; /* Resides above the grid, below interaction and threshold layers */
+}
+
+/* Stacked Layout Topologies */
+.analytics-graph-area[data-layout="stacked"] .analytics-bars-container {
+  flex-direction: column-reverse; /* Reverses DOM order to match visual stacking (bottom-to-top) */
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0;
+}
+
+.analytics-bar-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 100%;
+  max-width: 32px;
+  /* Height injected strictly via inline CSS variables (percentage based 0-100) */
+  height: calc(var(--bar-height, 0) * 1%); 
+  min-height: 2px; /* Guarantees interaction target for zero/near-zero values */
+  border-radius: var(--graph-radius-bar-top) var(--graph-radius-bar-top) var(--graph-radius-bar-bottom) var(--graph-radius-bar-bottom);
+  transition: height var(--graph-motion-duration-base) var(--graph-motion-easing-standard),
+              opacity var(--graph-motion-duration-fast) var(--graph-motion-easing-standard);
+  transform-origin: bottom center;
+}
+
+/* Stacked Layout Bar Geometry Overrides */
+.analytics-graph-area[data-layout="stacked"] .analytics-bar-wrapper {
+  width: 100%;
+  max-width: 48px;
+  border-radius: 0;
+  border-bottom: 1px solid var(--graph-bg); /* High contrast structural separation stroke */
+}
+
+/* Isolate bounding radius for stack terminals */
+.analytics-graph-area[data-layout="stacked"] .analytics-bar-wrapper:last-child {
+  border-bottom: none;
+  border-radius: var(--graph-radius-bar-top) var(--graph-radius-bar-top) 0 0;
+}
+
+.analytics-graph-area[data-layout="stacked"] .analytics-bar-wrapper:first-child {
+  border-radius: 0 0 var(--graph-radius-bar-bottom) var(--graph-radius-bar-bottom);
+}
+
+/* --- Multi-Layered Composition --- */
+
+.analytics-bar-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+/* Base Solid Variant */
+.analytics-bar-fill {
+  background-color: var(--bar-color, var(--graph-series-0));
+  transition: background-color var(--graph-motion-duration-fast) var(--graph-motion-easing-standard);
+}
+
+/* Gradient Variant */
+.analytics-bar-fill[data-variant="gradient"] {
+  background: linear-gradient(
+    to bottom,
+    var(--bar-color),
+    color-mix(in srgb, var(--bar-color) 15%, transparent)
+  );
+}
+
+/* Inactive/Projected Hatched Variant */
+.analytics-bar-fill[data-variant="hatched"] {
+  background-color: transparent;
+  background-image: repeating-linear-gradient(
+    45deg,
+    color-mix(in srgb, var(--bar-color) 25%, transparent),
+    color-mix(in srgb, var(--bar-color) 25%, transparent) 4px,
+    transparent 4px,
+    transparent 8px
+  );
+  border: 1px solid color-mix(in srgb, var(--bar-color) 50%, transparent);
+  box-sizing: border-box;
+}
+
+/* Glass/Glare Effect Layer */
+.analytics-bar-highlight {
+  box-shadow: inset 1px 1px 0px 0px rgba(255, 255, 255, 0.15);
+  mix-blend-mode: overlay;
+}
+
+/* Depth Edge Layer */
+.analytics-bar-shadow {
+  box-shadow: inset -1px -1px 2px 0px rgba(0, 0, 0, 0.05);
+}
+
+/* --- Anchor Nodes (Tooltip/Focus Integration) --- */
+
+.analytics-bar-marker {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: var(--graph-bg);
+  border: 3px solid var(--bar-color, var(--graph-series-0));
+  z-index: 10;
+  opacity: 0;
+  pointer-events: none;
+  box-shadow: 0 0 0 2px var(--graph-bg);
+  transition: opacity var(--graph-motion-duration-fast) var(--graph-motion-easing-entrance);
+}
+
+.analytics-bar-wrapper[data-active="true"] .analytics-bar-marker {
+  opacity: 1;
+}

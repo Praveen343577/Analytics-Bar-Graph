@@ -1,0 +1,43 @@
+/* src/styles/index.css */
+
+/* Layer 1: Core Design Tokens & Variables */
+@import "./theme/variables.css";
+@import "./theme/colors.css";
+@import "./theme/typography.css";
+@import "./theme/spacing.css";
+@import "./theme/radius-borders.css";
+@import "./theme/shadows.css";
+
+/* Layer 2: Structural Layout Engines */
+@import "./layout/graph-area.css";
+@import "./layout/zone-grid.css";
+@import "./layout/responsive-overflow.css";
+@import "./layout/z-index-layers.css";
+
+/* Layer 3: Atomic Component System */
+@import "./components/bars.css";
+@import "./components/threshold.css";
+@import "./components/legend.css";
+@import "./components/header-actions.css";
+@import "./components/footer-cards.css";
+
+/* Layer 4: State Architecture */
+@import "./states/selection.css";
+@import "./states/focus-visible.css";
+@import "./states/hover-fade.css";
+@import "./states/disabled.css";
+
+/* Layer 5: Animation System */
+@import "./animations/css-transitions.css";
+@import "./animations/framer-motion-overrides.css";
+
+/* Global resets specifically scoped inside the visualization target */
+.analytics-bar-graph *,
+.analytics-bar-graph *::before,
+.analytics-bar-graph *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

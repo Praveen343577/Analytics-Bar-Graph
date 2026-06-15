@@ -1,0 +1,85 @@
+/* src/styles/animations/css-transitions.css */
+
+/* Hardware-accelerated base transition utility */
+.analytics-transition-base {
+  transition-property:
+    opacity, transform, background-color, color, border-color, box-shadow,
+    filter;
+  transition-timing-function: var(--graph-motion-easing-standard);
+  transition-duration: var(--graph-motion-duration-base);
+  will-change: opacity, transform;
+}
+
+.analytics-transition-fast {
+  transition-property:
+    opacity, transform, background-color, color, border-color, box-shadow,
+    filter;
+  transition-timing-function: var(--graph-motion-easing-standard);
+  transition-duration: var(--graph-motion-duration-fast);
+}
+
+/* Tooltip standard entrance animation (for non-Framer nodes) */
+@keyframes analytics-fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 8px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, 0) scale(1);
+  }
+}
+
+.analytics-animate-tooltip-enter {
+  animation: analytics-fade-in-up var(--graph-motion-duration-fast)
+    var(--graph-motion-easing-entrance) forwards;
+}
+
+/* Skeleton loader for asynchronous data fetching */
+@keyframes analytics-pulse-shimmer {
+  0% {
+    opacity: 1;
+    background-color: var(--graph-grid-line);
+  }
+  50% {
+    opacity: 0.5;
+    background-color: var(--graph-zone-hover-bg);
+  }
+  100% {
+    opacity: 1;
+    background-color: var(--graph-grid-line);
+  }
+}
+
+.analytics-animate-pulse {
+  animation: analytics-pulse-shimmer 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Realtime injection flash (triggered via DOM class addition/removal by adapter) */
+@keyframes analytics-data-flash {
+  0% {
+    filter: brightness(1) saturate(100%);
+  }
+  30% {
+    filter: brightness(1.25) saturate(120%);
+  }
+  100% {
+    filter: brightness(1) saturate(100%);
+  }
+}
+
+.analytics-animate-data-update {
+  animation: analytics-data-flash 500ms var(--graph-motion-easing-entrance);
+}
+
+/* Mandatory accessibility override for OS-level motion restrictions */
+@media (prefers-reduced-motion: reduce) {
+  .analytics-graph-container *,
+  .analytics-graph-container *::before,
+  .analytics-graph-container *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

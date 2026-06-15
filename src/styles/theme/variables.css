@@ -1,0 +1,91 @@
+/* src/styles/theme/variables.css */
+
+.analytics-bar-graph {
+  /* Colors - Light Theme (Default) */
+  --graph-bg: #ffffff;
+  --graph-text-primary: #111827;
+  --graph-text-secondary: #4b5563;
+  --graph-text-muted: #9ca3af;
+  --graph-grid-line: #e5e7eb;
+  --graph-zone-hover-bg: #f3f4f6;
+  --graph-zone-focus-ring: #4f46e5;
+  --graph-tooltip-bg: #1f2937;
+  --graph-tooltip-text: #f9fafb;
+  --graph-threshold-solid: #ef4444;
+  --graph-threshold-dashed: #f59e0b;
+
+  /* Series Palette (Derived from design blueprint: Nightblue & Pigeon) */
+  --graph-series-0: #5b5de5; /* Nightblue */
+  --graph-series-1: #aebceb; /* Pigeon */
+  --graph-series-2: #10b981; /* Emerald */
+  --graph-series-3: #f59e0b; /* Amber */
+  --graph-series-4: #8b5cf6; /* Violet */
+
+  /* Spacing */
+  --graph-padding: 1.5rem;
+  --graph-zone-gap: 1.5rem;
+  --graph-bar-gap: 0.25rem;
+  --graph-axis-offset: 0.75rem;
+  --graph-header-margin-bottom: 2rem;
+  --graph-legend-margin-bottom: 1.5rem;
+
+  /* Radius */
+  --graph-radius-bar-top: 6px;
+  --graph-radius-bar-bottom: 0px;
+  --graph-radius-zone-bg: 12px;
+  --graph-radius-tooltip: 8px;
+  --graph-radius-container: 16px;
+
+  /* Typography */
+  --graph-font-family:
+    ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
+  --graph-font-title-size: 1.125rem;
+  --graph-font-title-weight: 600;
+  --graph-font-subtitle-size: 0.875rem;
+  --graph-font-axis-label-size: 0.75rem;
+  --graph-font-axis-label-weight: 500;
+  --graph-font-tooltip-size: 0.75rem;
+
+  /* Motion */
+  --graph-motion-duration-base: 200ms;
+  --graph-motion-duration-fast: 100ms;
+  --graph-motion-easing-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --graph-motion-easing-entrance: cubic-bezier(0, 0, 0.2, 1);
+
+  /* Shadows */
+  --graph-shadow-tooltip:
+    0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --graph-shadow-zone-hover: inset 0 0 0 1px rgb(0 0 0 / 0.05);
+  --graph-shadow-container:
+    0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+
+  /* Borders */
+  --graph-grid-width: 1px;
+  --graph-grid-style: dashed;
+  --graph-focus-ring-width: 2px;
+  --graph-focus-ring-style: solid;
+}
+
+/* Dark Mode Overrides */
+.analytics-bar-graph[data-theme="dark"] {
+  --graph-bg: #111827;
+  --graph-text-primary: #f9fafb;
+  --graph-text-secondary: #9ca3af;
+  --graph-text-muted: #4b5563;
+  --graph-grid-line: #374151;
+  --graph-zone-hover-bg: #1f2937;
+  --graph-zone-focus-ring: #6366f1;
+  --graph-tooltip-bg: #ffffff;
+  --graph-tooltip-text: #111827;
+
+  --graph-series-0: #6366f1;
+  --graph-series-1: #818cf8;
+  --graph-series-2: #34d399;
+
+  --graph-shadow-tooltip:
+    0 4px 6px -1px rgb(0 0 0 / 0.3), 0 2px 4px -2px rgb(0 0 0 / 0.3);
+  --graph-shadow-zone-hover: inset 0 0 0 1px rgb(255 255 255 / 0.05);
+  --graph-shadow-container:
+    0 4px 6px -1px rgb(0 0 0 / 0.5), 0 2px 4px -2px rgb(0 0 0 / 0.5);
+}
