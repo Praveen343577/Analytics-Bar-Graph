@@ -1,0 +1,78 @@
+/* src/styles/components/legend.css */
+
+.analytics-legend-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1.25rem;
+  width: 100%;
+  margin-bottom: var(--graph-legend-margin-bottom);
+  user-select: none;
+}
+
+.analytics-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  padding: 0.25rem 0.5rem;
+  margin: -0.25rem -0.5rem;
+  border-radius: 4px;
+  transition: opacity var(--graph-motion-duration-fast) var(--graph-motion-easing-standard),
+              background-color var(--graph-motion-duration-fast) var(--graph-motion-easing-standard);
+}
+
+.analytics-legend-item:hover:not(:disabled) {
+  background-color: var(--graph-zone-hover-bg);
+}
+
+.analytics-legend-item:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+/* Color Indicator Geometry Node */
+.analytics-legend-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--series-color, var(--graph-series-0));
+  flex-shrink: 0;
+  transition: transform var(--graph-motion-duration-fast) var(--graph-motion-easing-standard),
+              background-color var(--graph-motion-duration-fast) var(--graph-motion-easing-standard),
+              box-shadow var(--graph-motion-duration-fast) var(--graph-motion-easing-standard);
+}
+
+.analytics-legend-label {
+  font-size: var(--graph-font-axis-label-size);
+  font-weight: 500;
+  color: var(--graph-text-secondary);
+  line-height: 1;
+  white-space: nowrap;
+  transition: color var(--graph-motion-duration-fast) var(--graph-motion-easing-standard);
+}
+
+.analytics-legend-item:hover .analytics-legend-label {
+  color: var(--graph-text-primary);
+}
+
+/* --- Toggled Inactive/Hidden Component States --- */
+
+.analytics-legend-item[data-hidden="true"] {
+  opacity: 0.45;
+}
+
+.analytics-legend-item[data-hidden="true"] .analytics-legend-indicator {
+  background-color: transparent !important;
+  box-shadow: inset 0 0 0 2px var(--graph-text-muted);
+  transform: scale(0.9);
+}
+
+.analytics-legend-item[data-hidden="true"] .analytics-legend-label {
+  color: var(--graph-text-muted);
+  text-decoration: line-through;
+}

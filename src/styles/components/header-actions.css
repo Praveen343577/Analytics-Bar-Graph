@@ -1,0 +1,108 @@
+/* src/styles/components/header-actions.css */
+
+.analytics-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: var(--graph-header-margin-bottom);
+  gap: var(--graph-zone-gap);
+}
+
+.analytics-header-titles {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.analytics-header-title {
+  font-size: var(--graph-font-title-size);
+  font-weight: var(--graph-font-title-weight);
+  color: var(--graph-text-primary);
+  line-height: 1.2;
+}
+
+.analytics-header-subtitle {
+  font-size: var(--graph-font-subtitle-size);
+  color: var(--graph-text-secondary);
+  line-height: 1.4;
+}
+
+.analytics-actions-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Individual Action Trigger Target Blueprint */
+.analytics-action-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem;
+  padding: 0.5rem 0.75rem;
+  font-size: var(--graph-font-axis-label-size);
+  font-weight: 500;
+  color: var(--graph-text-secondary);
+  background-color: var(--graph-bg);
+  border: var(--graph-grid-width) solid var(--graph-grid-line);
+  border-radius: var(--graph-radius-tooltip);
+  cursor: pointer;
+  user-select: none;
+  transition: background-color var(--graph-motion-duration-fast) var(--graph-motion-easing-standard),
+              color var(--graph-motion-duration-fast) var(--graph-motion-easing-standard),
+              border-color var(--graph-motion-duration-fast) var(--graph-motion-easing-standard);
+}
+
+.analytics-action-button:hover:not(:disabled) {
+  background-color: var(--graph-zone-hover-bg);
+  color: var(--graph-text-primary);
+  border-color: color-mix(in srgb, var(--graph-text-muted) 50%, var(--graph-grid-line));
+}
+
+.analytics-action-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.analytics-action-button[data-active="true"] {
+  background-color: color-mix(in srgb, var(--graph-zone-focus-ring) 10%, var(--graph-bg));
+  color: var(--graph-zone-focus-ring);
+  border-color: var(--graph-zone-focus-ring);
+  font-weight: 600;
+}
+
+/* Segmented Control Track Layer */
+.analytics-segmented-control {
+  display: inline-flex;
+  background-color: var(--graph-zone-hover-bg);
+  padding: 0.25rem;
+  border-radius: var(--graph-radius-tooltip);
+  border: var(--graph-grid-width) solid var(--graph-grid-line);
+}
+
+.analytics-segmented-option {
+  padding: 0.375rem 0.75rem;
+  font-size: var(--graph-font-axis-label-size);
+  font-weight: 500;
+  color: var(--graph-text-secondary);
+  background: transparent;
+  border: none;
+  border-radius: calc(var(--graph-radius-tooltip) - 2px);
+  cursor: pointer;
+  transition: background-color var(--graph-motion-duration-fast) var(--graph-motion-easing-standard),
+              color var(--graph-motion-duration-fast) var(--graph-motion-easing-standard);
+}
+
+.analytics-segmented-option:hover:not(:disabled) {
+  color: var(--graph-text-primary);
+}
+
+.analytics-segmented-option[data-selected="true"] {
+  background-color: var(--graph-bg);
+  color: var(--graph-text-primary);
+  box-shadow: var(--graph-shadow-container);
+  font-weight: 600;
+}

@@ -1,0 +1,74 @@
+/* src/styles/components/threshold.css */
+
+.analytics-threshold-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: var(--graph-axis-offset);
+  pointer-events: none;
+  z-index: var(--z-index-thresholds, 4);
+}
+
+.analytics-threshold-wrapper {
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 100%;
+  /* Vertical position (bottom offset) injected via inline style variables calculated from scale percentages */
+  bottom: calc(var(--threshold-y-percentage, 0) * 1%);
+  transform: translateY(50%); /* Pivot around the exact numeric center vector */
+  display: flex;
+  align-items: center;
+  transition: bottom var(--graph-motion-duration-base) var(--graph-motion-easing-standard);
+  will-change: bottom;
+}
+
+.analytics-threshold-line {
+  flex-grow: 1;
+  height: 0;
+  border-top-width: 1px;
+  border-top-color: var(--threshold-color, var(--graph-threshold-solid));
+  transition: border-color var(--graph-motion-duration-fast) var(--graph-motion-easing-standard);
+}
+
+.analytics-threshold-wrapper[data-style="dashed"] .analytics-threshold-line {
+  border-top-style: dashed;
+}
+
+.analytics-threshold-wrapper[data-style="solid"] .analytics-threshold-line {
+  border-top-style: solid;
+}
+
+.analytics-threshold-wrapper[data-style="dotted"] .analytics-threshold-line {
+  border-top-style: dotted;
+}
+
+/* Micro Badge Pinning Metrics */
+.analytics-threshold-badge {
+  position: absolute;
+  right: 0;
+  transform: translateY(-50%);
+  padding: 0.125rem 0.375rem;
+  font-size: calc(var(--graph-font-axis-label-size) - 1px);
+  font-weight: 600;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  color: #ffffff;
+  background-color: var(--threshold-color, var(--graph-threshold-solid));
+  border-radius: 4px 0 0 4px;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1);
+  white-space: nowrap;
+  opacity: 0.85;
+  transition: opacity var(--graph-motion-duration-fast) var(--graph-motion-easing-standard),
+              background-color var(--graph-motion-duration-fast) var(--graph-motion-easing-standard);
+}
+
+/* Elevate prominence if parent zone interaction activates threshold cross-sections */
+.analytics-threshold-wrapper[data-active="true"] .analytics-threshold-badge {
+  opacity: 1;
+}
+
+.analytics-threshold-wrapper[data-active="true"] .analytics-threshold-line {
+  border-top-width: 2px;
+  filter: brightness(1.1);
+}

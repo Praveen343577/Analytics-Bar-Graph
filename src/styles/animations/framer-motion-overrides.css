@@ -1,0 +1,35 @@
+/* src/styles/animations/framer-motion-overrides.css */
+
+/* Force hardware acceleration and composite layers on Framer Motion orchestrated primitives */
+.analytics-bar-graph [data-framer-component-type],
+.analytics-motion-accelerated {
+  will-change: transform, opacity;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
+/* Enforce rigid transform-origin anchors to block default center-scaling during layoutId transitions */
+.analytics-bar-wrapper[style*="transform"],
+.analytics-bar-wrapper[style*="height"] {
+  transform-origin: bottom center !important;
+}
+
+/* Stabilize nested layouts during Framer Motion layout animations inside flex boxes */
+.analytics-bars-container > div[style*="position: absolute"] {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-end !important;
+  pointer-events: none;
+}
+
+/* Suppress interaction vectors for tooltips executing exit animations */
+.analytics-tooltip-container[style*="opacity: 0"],
+.analytics-tooltip-container[style*="opacity:0"] {
+  pointer-events: none !important;
+  visibility: hidden !important;
+}
+
+/* Standardize aspect ratio behavior during cross-browser layout synchronization loops */
+.analytics-graph-core [style*="layoutId"] {
+  box-sizing: border-box !important;
+}

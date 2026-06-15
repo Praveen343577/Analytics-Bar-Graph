@@ -1,0 +1,97 @@
+/* src/styles/components/footer-cards.css */
+
+.analytics-footer-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: var(--graph-zone-gap);
+  width: 100%;
+  margin-top: auto;
+  padding-top: var(--graph-padding);
+  border-top: var(--graph-grid-width) solid var(--graph-grid-line);
+}
+
+.analytics-metric-card {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 calc(25% - var(--graph-zone-gap));
+  min-width: 140px;
+  padding: 1rem;
+  background-color: var(--graph-bg);
+  border: var(--graph-grid-width) solid var(--graph-grid-line);
+  border-radius: var(--graph-radius-tooltip);
+  box-shadow: var(--graph-shadow-container);
+  transition: transform var(--graph-motion-duration-fast) var(--graph-motion-easing-standard),
+              box-shadow var(--graph-motion-duration-fast) var(--graph-motion-easing-standard),
+              border-color var(--graph-motion-duration-fast) var(--graph-motion-easing-standard);
+}
+
+.analytics-metric-card:hover {
+  border-color: color-mix(in srgb, var(--graph-zone-focus-ring) 30%, var(--graph-grid-line));
+  box-shadow: 0 4px 12px -2px rgb(0 0 0 / 0.05);
+}
+
+.analytics-metric-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  width: 100%;
+}
+
+.analytics-metric-label {
+  font-size: var(--graph-font-axis-label-size);
+  font-weight: 500;
+  color: var(--graph-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.analytics-metric-value-container {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.analytics-metric-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--graph-text-primary);
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+
+.analytics-metric-unit {
+  font-size: var(--graph-font-axis-label-size);
+  color: var(--graph-text-muted);
+  font-weight: 500;
+}
+
+.analytics-metric-indicator {
+  display: inline-flex;
+  align-items: center;
+  font-size: var(--graph-font-axis-label-size);
+  font-weight: 600;
+  border-radius: 4px;
+  padding: 0.125rem 0.375rem;
+}
+
+.analytics-metric-indicator[data-trend="positive"] {
+  color: #10b981;
+  background-color: color-mix(in srgb, #10b981 10%, transparent);
+}
+
+.analytics-metric-indicator[data-trend="negative"] {
+  color: #ef4444;
+  background-color: color-mix(in srgb, #ef4444 10%, transparent);
+}
+
+.analytics-metric-indicator[data-trend="neutral"] {
+  color: var(--graph-text-muted);
+  background-color: color-mix(in srgb, var(--graph-text-muted) 10%, transparent);
+}
