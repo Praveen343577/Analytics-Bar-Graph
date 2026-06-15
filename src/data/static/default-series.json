@@ -1,0 +1,14 @@
+[
+  {
+    "key": "revenue",
+    "label": "Revenue"
+  },
+  {
+    "key": "expenses",
+    "label": "Expenses"
+  },
+  {
+    "key": "profit",
+    "label": "Profit"
+  }
+]

@@ -1,0 +1,158 @@
+[
+  {
+    "id": "hist-jan-2025",
+    "label": "Jan 25",
+    "timestamp": "2025-01-01T00:00:00Z",
+    "iconIdentifier": "history",
+    "metrics": [
+      { "id": "hj25-rev", "seriesKey": "revenue", "displayName": "Revenue", "value": 38000 },
+      { "id": "hj25-exp", "seriesKey": "expenses", "displayName": "Expenses", "value": 26000 },
+      { "id": "hj25-pro", "seriesKey": "profit", "displayName": "Profit", "value": 12000 }
+    ],
+    "metadata": { "notes": "Q1 kick-off" },
+    "isDisabled": false
+  },
+  {
+    "id": "hist-feb-2025",
+    "label": "Feb 25",
+    "timestamp": "2025-02-01T00:00:00Z",
+    "iconIdentifier": "history",
+    "metrics": [
+      { "id": "hf25-rev", "seriesKey": "revenue", "displayName": "Revenue", "value": 41500 },
+      { "id": "hf25-exp", "seriesKey": "expenses", "displayName": "Expenses", "value": 28500 },
+      { "id": "hf25-pro", "seriesKey": "profit", "displayName": "Profit", "value": 13000 }
+    ],
+    "metadata": { "notes": "Standard month" },
+    "isDisabled": false
+  },
+  {
+    "id": "hist-mar-2025",
+    "label": "Mar 25",
+    "timestamp": "2025-03-01T00:00:00Z",
+    "iconIdentifier": "history",
+    "metrics": [
+      { "id": "hm25-rev", "seriesKey": "revenue", "displayName": "Revenue", "value": 46000 },
+      { "id": "hm25-exp", "seriesKey": "expenses", "displayName": "Expenses", "value": 31000 },
+      { "id": "hm25-pro", "seriesKey": "profit", "displayName": "Profit", "value": 15000 }
+    ],
+    "metadata": { "notes": "End of Q1 push" },
+    "isDisabled": false
+  },
+  {
+    "id": "hist-apr-2025",
+    "label": "Apr 25",
+    "timestamp": "2025-04-01T00:00:00Z",
+    "iconIdentifier": "history",
+    "metrics": [
+      { "id": "ha25-rev", "seriesKey": "revenue", "displayName": "Revenue", "value": 42000 },
+      { "id": "ha25-exp", "seriesKey": "expenses", "displayName": "Expenses", "value": 29000 },
+      { "id": "ha25-pro", "seriesKey": "profit", "displayName": "Profit", "value": 13000 }
+    ],
+    "metadata": { "notes": "Tax season" },
+    "isDisabled": false
+  },
+  {
+    "id": "hist-may-2025",
+    "label": "May 25",
+    "timestamp": "2025-05-01T00:00:00Z",
+    "iconIdentifier": "history",
+    "metrics": [
+      { "id": "hma25-rev", "seriesKey": "revenue", "displayName": "Revenue", "value": 48000 },
+      { "id": "hma25-exp", "seriesKey": "expenses", "displayName": "Expenses", "value": 30000 },
+      { "id": "hma25-pro", "seriesKey": "profit", "displayName": "Profit", "value": 18000 }
+    ],
+    "metadata": { "notes": "Spring campaign" },
+    "isDisabled": false
+  },
+  {
+    "id": "hist-jun-2025",
+    "label": "Jun 25",
+    "timestamp": "2025-06-01T00:00:00Z",
+    "iconIdentifier": "history",
+    "metrics": [
+      { "id": "hju25-rev", "seriesKey": "revenue", "displayName": "Revenue", "value": 53000 },
+      { "id": "hju25-exp", "seriesKey": "expenses", "displayName": "Expenses", "value": 34000 },
+      { "id": "hju25-pro", "seriesKey": "profit", "displayName": "Profit", "value": 19000 }
+    ],
+    "metadata": { "notes": "End of Q2" },
+    "isDisabled": false
+  },
+  {
+    "id": "hist-jul-2025",
+    "label": "Jul 25",
+    "timestamp": "2025-07-01T00:00:00Z",
+    "iconIdentifier": "history",
+    "metrics": [
+      { "id": "hjl25-rev", "seriesKey": "revenue", "displayName": "Revenue", "value": 50000 },
+      { "id": "hjl25-exp", "seriesKey": "expenses", "displayName": "Expenses", "value": 32000 },
+      { "id": "hjl25-pro", "seriesKey": "profit", "displayName": "Profit", "value": 18000 }
+    ],
+    "metadata": { "notes": "Summer slow-down" },
+    "isDisabled": false
+  },
+  {
+    "id": "hist-aug-2025",
+    "label": "Aug 25",
+    "timestamp": "2025-08-01T00:00:00Z",
+    "iconIdentifier": "history",
+    "metrics": [
+      { "id": "hau25-rev", "seriesKey": "revenue", "displayName": "Revenue", "value": 49000 },
+      { "id": "hau25-exp", "seriesKey": "expenses", "displayName": "Expenses", "value": 31500 },
+      { "id": "hau25-pro", "seriesKey": "profit", "displayName": "Profit", "value": 17500 }
+    ],
+    "metadata": { "notes": "Standard month" },
+    "isDisabled": false
+  },
+  {
+    "id": "hist-sep-2025",
+    "label": "Sep 25",
+    "timestamp": "2025-09-01T00:00:00Z",
+    "iconIdentifier": "history",
+    "metrics": [
+      { "id": "hse25-rev", "seriesKey": "revenue", "displayName": "Revenue", "value": 55000 },
+      { "id": "hse25-exp", "seriesKey": "expenses", "displayName": "Expenses", "value": 35000 },
+      { "id": "hse25-pro", "seriesKey": "profit", "displayName": "Profit", "value": 20000 }
+    ],
+    "metadata": { "notes": "End of Q3" },
+    "isDisabled": false
+  },
+  {
+    "id": "hist-oct-2025",
+    "label": "Oct 25",
+    "timestamp": "2025-10-01T00:00:00Z",
+    "iconIdentifier": "history",
+    "metrics": [
+      { "id": "hoc25-rev", "seriesKey": "revenue", "displayName": "Revenue", "value": 58000 },
+      { "id": "hoc25-exp", "seriesKey": "expenses", "displayName": "Expenses", "value": 36000 },
+      { "id": "hoc25-pro", "seriesKey": "profit", "displayName": "Profit", "value": 22000 }
+    ],
+    "metadata": { "notes": "Q4 ramp-up" },
+    "isDisabled": false
+  },
+  {
+    "id": "hist-nov-2025",
+    "label": "Nov 25",
+    "timestamp": "2025-11-01T00:00:00Z",
+    "iconIdentifier": "history",
+    "metrics": [
+      { "id": "hno25-rev", "seriesKey": "revenue", "displayName": "Revenue", "value": 65000 },
+      { "id": "hno25-exp", "seriesKey": "expenses", "displayName": "Expenses", "value": 40000 },
+      { "id": "hno25-pro", "seriesKey": "profit", "displayName": "Profit", "value": 25000 }
+    ],
+    "metadata": { "notes": "Black Friday sales" },
+    "isDisabled": false
+  },
+  {
+    "id": "hist-dec-2025",
+    "label": "Dec 25",
+    "timestamp": "2025-12-01T00:00:00Z",
+    "iconIdentifier": "history",
+    "metrics": [
+      { "id": "hde25-rev", "seriesKey": "revenue", "displayName": "Revenue", "value": 72000 },
+      { "id": "hde25-exp", "seriesKey": "expenses", "displayName": "Expenses", "value": 45000 },
+      { "id": "hde25-pro", "seriesKey": "profit", "displayName": "Profit", "value": 27000 }
+    ],
+    "metadata": { "notes": "End of year closing" },
+    "isDisabled": false
+  }
+]

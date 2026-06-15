@@ -1,0 +1,98 @@
+[
+  {
+    "id": "zone-jan-2026",
+    "label": "Jan",
+    "timestamp": "2026-01-01T00:00:00Z",
+    "iconIdentifier": "calendar-jan",
+    "metrics": [
+      { "id": "jan-rev", "seriesKey": "revenue", "displayName": "Revenue", "value": 42500 },
+      { "id": "jan-exp", "seriesKey": "expenses", "displayName": "Expenses", "value": 28000 },
+      { "id": "jan-pro", "seriesKey": "profit", "displayName": "Profit", "value": 14500 }
+    ],
+    "metadata": {
+      "growthPercentage": 2.4,
+      "targetAchieved": true
+    },
+    "isDisabled": false
+  },
+  {
+    "id": "zone-feb-2026",
+    "label": "Feb",
+    "timestamp": "2026-02-01T00:00:00Z",
+    "iconIdentifier": "calendar-feb",
+    "metrics": [
+      { "id": "feb-rev", "seriesKey": "revenue", "displayName": "Revenue", "value": 38000 },
+      { "id": "feb-exp", "seriesKey": "expenses", "displayName": "Expenses", "value": 31000 },
+      { "id": "feb-pro", "seriesKey": "profit", "displayName": "Profit", "value": 7000 }
+    ],
+    "metadata": {
+      "growthPercentage": -10.5,
+      "targetAchieved": false
+    },
+    "isDisabled": false
+  },
+  {
+    "id": "zone-mar-2026",
+    "label": "Mar",
+    "timestamp": "2026-03-01T00:00:00Z",
+    "iconIdentifier": "calendar-mar",
+    "metrics": [
+      { "id": "mar-rev", "seriesKey": "revenue", "displayName": "Revenue", "value": 51200 },
+      { "id": "mar-exp", "seriesKey": "expenses", "displayName": "Expenses", "value": 29500 },
+      { "id": "mar-pro", "seriesKey": "profit", "displayName": "Profit", "value": 21700 }
+    ],
+    "metadata": {
+      "growthPercentage": 34.7,
+      "targetAchieved": true
+    },
+    "isDisabled": false
+  },
+  {
+    "id": "zone-apr-2026",
+    "label": "Apr",
+    "timestamp": "2026-04-01T00:00:00Z",
+    "iconIdentifier": "calendar-apr",
+    "metrics": [
+      { "id": "apr-rev", "seriesKey": "revenue", "displayName": "Revenue", "value": 48900 },
+      { "id": "apr-exp", "seriesKey": "expenses", "displayName": "Expenses", "value": 27000 },
+      { "id": "apr-pro", "seriesKey": "profit", "displayName": "Profit", "value": 21900 }
+    ],
+    "metadata": {
+      "growthPercentage": -4.4,
+      "targetAchieved": true
+    },
+    "isDisabled": false
+  },
+  {
+    "id": "zone-may-2026",
+    "label": "May",
+    "timestamp": "2026-05-01T00:00:00Z",
+    "iconIdentifier": "calendar-may",
+    "metrics": [
+      { "id": "may-rev", "seriesKey": "revenue", "displayName": "Revenue", "value": 56000 },
+      { "id": "may-exp", "seriesKey": "expenses", "displayName": "Expenses", "value": 30500 },
+      { "id": "may-pro", "seriesKey": "profit", "displayName": "Profit", "value": 25500 }
+    ],
+    "metadata": {
+      "growthPercentage": 14.5,
+      "targetAchieved": true
+    },
+    "isDisabled": false
+  },
+  {
+    "id": "zone-jun-2026",
+    "label": "Jun",
+    "timestamp": "2026-06-01T00:00:00Z",
+    "iconIdentifier": "calendar-jun",
+    "metrics": [
+      { "id": "jun-rev", "seriesKey": "revenue", "displayName": "Revenue", "value": 62400 },
+      { "id": "jun-exp", "seriesKey": "expenses", "displayName": "Expenses", "value": 33000 },
+      { "id": "jun-pro", "seriesKey": "profit", "displayName": "Profit", "value": 29400 }
+    ],
+    "metadata": {
+      "growthPercentage": 11.4,
+      "targetAchieved": true
+    },
+    "isDisabled": false
+  }
+]
