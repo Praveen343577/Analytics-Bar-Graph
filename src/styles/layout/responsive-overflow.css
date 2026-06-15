@@ -1,0 +1,76 @@
+/* src/styles/layout/responsive-overflow.css */
+
+/* --- Fit Mode Configuration --- */
+.analytics-graph-container[data-overflow="fit"] .analytics-zones-container {
+  width: 100%;
+  left: 0;
+  right: 0;
+}
+
+/* --- Compress Mode Configuration --- */
+.analytics-graph-container[data-overflow="compress"] {
+  --graph-zone-gap: 0.5rem;
+  --graph-bar-gap: 0.125rem;
+  --graph-padding: 1rem;
+}
+
+.analytics-graph-container[data-overflow="compress"] .analytics-text-axis-label {
+  font-size: calc(var(--graph-font-axis-label-size) - 1px);
+}
+
+.analytics-graph-container[data-overflow="compress"] .analytics-x-axis-icon {
+  display: none; /* Strip presentation iconography to save horizontal bounding real estate */
+}
+
+/* --- Scroll & Auto Mode Configuration --- */
+.analytics-graph-container[data-overflow="scroll"] .analytics-graph-core,
+.analytics-graph-container[data-overflow="auto"] .analytics-graph-core {
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: var(--graph-grid-line) transparent;
+  scroll-behavior: smooth;
+}
+
+/* Decouple absolute pinning to allow the data layout container to drive structural width */
+.analytics-graph-container[data-overflow="scroll"] .analytics-zones-container,
+.analytics-graph-container[data-overflow="auto"] .analytics-zones-container {
+  position: relative;
+  width: max-content;
+  min-width: 100%;
+}
+
+/* Establish standard invariant segment widths under explicitly active scroll environments */
+.analytics-graph-container[data-overflow="scroll"] .analytics-zone {
+  flex: 0 0 72px; 
+}
+
+/* Dynamic container query auto-trigger fallbacks if engine computes element constraints */
+@container (max-width: 480px) {
+  .analytics-graph-container[data-overflow="auto"] .analytics-zone {
+    flex: 0 0 64px;
+  }
+}
+
+/* --- Cross-Browser Webkit Scrollbar Styling Engine --- */
+.analytics-graph-container[data-overflow="scroll"] .analytics-graph-core::-webkit-scrollbar,
+.analytics-graph-container[data-overflow="auto"] .analytics-graph-core::-webkit-scrollbar {
+  height: 6px;
+}
+
+.analytics-graph-container[data-overflow="scroll"] .analytics-graph-core::-webkit-scrollbar-track,
+.analytics-graph-container[data-overflow="auto"] .analytics-graph-core::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.analytics-graph-container[data-overflow="scroll"] .analytics-graph-core::-webkit-scrollbar-thumb,
+.analytics-graph-container[data-overflow="auto"] .analytics-graph-core::-webkit-scrollbar-thumb {
+  background-color: var(--graph-grid-line);
+  border-radius: var(--graph-radius-bar-top);
+  transition: background-color var(--graph-motion-duration-fast) var(--graph-motion-easing-standard);
+}
+
+.analytics-graph-container[data-overflow="scroll"] .analytics-graph-core::-webkit-scrollbar-thumb:hover,
+.analytics-graph-container[data-overflow="auto"] .analytics-graph-core::-webkit-scrollbar-thumb:hover {
+  background-color: var(--graph-text-muted);
+}

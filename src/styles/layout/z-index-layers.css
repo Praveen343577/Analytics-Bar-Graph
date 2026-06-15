@@ -1,0 +1,57 @@
+/* src/styles/layout/z-index-layers.css */
+
+:root {
+  /* Centralized Stacking Context Blueprint */
+  --z-index-grid: 1;
+  --z-index-bars: 2;
+  --z-index-zones: 3;
+  --z-index-thresholds: 4;
+  --z-index-axis: 5;
+  --z-index-elevated-zone: 10;
+  --z-index-tooltip: 100;
+}
+
+/* Base Structural Layer Assignment */
+.analytics-grid {
+  z-index: var(--z-index-grid);
+}
+
+.analytics-bars-container {
+  z-index: var(--z-index-bars);
+}
+
+.analytics-zones-container {
+  z-index: var(--z-index-zones);
+}
+
+.analytics-threshold-layer {
+  z-index: var(--z-index-thresholds);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: var(--graph-axis-offset);
+  pointer-events: none;
+}
+
+.analytics-y-axis,
+.analytics-x-axis-track {
+  z-index: var(--z-index-axis);
+}
+
+/* Interactive State Elevation Overrides */
+.analytics-zone[data-selected="true"] {
+  z-index: var(--z-index-elevated-zone);
+}
+
+.analytics-focus-target:focus-visible,
+.analytics-focus-target[data-focused="true"] {
+  z-index: calc(var(--z-index-elevated-zone) + 1);
+}
+
+/* Floating Component Layer */
+.analytics-tooltip-container {
+  z-index: var(--z-index-tooltip);
+  position: absolute;
+  pointer-events: none;
+}

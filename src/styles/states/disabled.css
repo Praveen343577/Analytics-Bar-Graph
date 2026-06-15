@@ -1,0 +1,36 @@
+/* src/styles/states/disabled.css */
+
+/* Complete interactive lock on disabled structural segments */
+.analytics-zone[data-disabled="true"] {
+  pointer-events: none !important;
+  cursor: not-allowed;
+  opacity: 0.4;
+  filter: saturate(20%) brightness(0.9);
+  transition: opacity var(--graph-motion-duration-base) var(--graph-motion-easing-standard),
+              filter var(--graph-motion-duration-base) var(--graph-motion-easing-standard);
+}
+
+/* Suppress localized hover background shifts */
+.analytics-zone[data-disabled="true"] .analytics-zone-interaction-bg {
+  display: none !important;
+  opacity: 0 !important;
+}
+
+/* Absolute suppression of active anchoring dots or high contrast markers */
+.analytics-zone[data-disabled="true"] .analytics-bar-marker {
+  display: none !important;
+  opacity: 0 !important;
+}
+
+/* Text state normalization for accessibility contrasts under disabled parameters */
+.analytics-zone[data-disabled="true"] .analytics-x-axis-content {
+  color: var(--graph-text-muted) !important;
+  font-weight: 400 !important;
+}
+
+/* Structural bar rendering adjustments under inactive/disabled configuration */
+.analytics-zone[data-disabled="true"] .analytics-bar-fill {
+  background-color: var(--graph-grid-line) !important;
+  background-image: none !important;
+  box-shadow: none !important;
+}

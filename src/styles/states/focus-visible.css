@@ -1,0 +1,44 @@
+/* src/styles/states/focus-visible.css */
+
+/* Suppress standard native browser focus outlines globally within the graph architecture */
+.analytics-bar-graph *:focus {
+  outline: none;
+}
+
+/* Enforce high-visibility programmatic focus rings strictly during keyboard navigation vectors */
+.analytics-bar-graph *:focus-visible {
+  outline: var(--graph-focus-ring-width) var(--graph-focus-ring-style) var(--graph-zone-focus-ring);
+  outline-offset: 2px;
+}
+
+/* Localized Focus Target Modifications for Interactive Zones */
+.analytics-zone:focus-visible {
+  z-index: calc(var(--z-index-elevated-zone, 10) + 2);
+}
+
+/* Drive interaction background opacity under active keyboard focus matching hover parity */
+.analytics-zone:focus-visible .analytics-zone-interaction-bg {
+  opacity: 1;
+  background-color: var(--graph-zone-hover-bg);
+  box-shadow: 0 0 0 1px var(--graph-zone-focus-ring), var(--graph-shadow-zone-hover);
+}
+
+/* Elevate text contrast definition for screen readers and low vision keyboard operators */
+.analytics-zone:focus-visible .analytics-x-axis-content {
+  color: var(--graph-text-primary);
+  font-weight: 600;
+}
+
+/* Bounding core scroll frame focus handling to protect against edge clipping */
+.analytics-graph-core:focus-visible {
+  outline: var(--graph-focus-ring-width) dashed var(--graph-zone-focus-ring);
+  outline-offset: -2px; /* Pulls outline internally to circumvent container absolute overflow masks */
+  border-radius: var(--graph-radius-container);
+}
+
+/* Control Inversion Action Elements (Header Buttons, Legend Toggle Nodes) */
+.analytics-focusable-action:focus-visible {
+  outline: var(--graph-focus-ring-width) var(--graph-focus-ring-style) var(--graph-zone-focus-ring);
+  outline-offset: 1px;
+  background-color: var(--graph-zone-hover-bg);
+}

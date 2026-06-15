@@ -1,0 +1,50 @@
+/* src/styles/states/hover-fade.css */
+
+/* --- Cross-Zone Hover Dimming Architecture --- */
+
+/* When the mouse cursor enters any zone inside a non-selected graph configuration, 
+   dim all alternative zones to amplify structural tracking clarity.
+*/
+.analytics-graph-area[data-has-selection="false"]:hover .analytics-zone {
+  opacity: 0.5;
+  filter: saturate(75%);
+  transition: opacity var(--graph-motion-duration-fast) var(--graph-motion-easing-standard),
+              filter var(--graph-motion-duration-fast) var(--graph-motion-easing-standard);
+}
+
+/* Enforce local prominence and zero attenuation for the specific active hover target */
+.analytics-graph-area[data-has-selection="false"] .analytics-zone:hover {
+  opacity: 1;
+  filter: saturate(100%);
+  z-index: var(--z-index-elevated-zone, 10);
+}
+
+/* --- Internal Zone Hover Layer Activations --- */
+
+.analytics-zone:hover .analytics-zone-interaction-bg {
+  opacity: 1;
+  background-color: var(--graph-zone-hover-bg);
+  box-shadow: var(--graph-shadow-zone-hover);
+}
+
+.analytics-zone:hover .analytics-x-axis-content {
+  color: var(--graph-text-primary);
+}
+
+/* Triggers contextual elevation markers on structural bars during zone hover actions */
+.analytics-zone:hover .analytics-bar-marker {
+  opacity: 1;
+}
+
+/* --- Pre-existing Selection Overrides --- */
+
+/* If a selection state is explicitly instantiated, suppress standard hover-fade behaviors */
+.analytics-graph-area[data-has-selection="true"]:hover .analytics-zone {
+  /* Retain exact states defined by the selection engine layer */
+  transition: none;
+}
+
+.analytics-graph-area[data-has-selection="true"] .analytics-zone[data-selected="false"]:hover {
+  opacity: 0.6; /* Slight relative enhancement to signify interactive potential */
+  filter: saturate(85%);
+}

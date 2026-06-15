@@ -1,0 +1,92 @@
+/* src/styles/layout/zone-grid.css */
+
+.analytics-zones-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0; /* Encompasses both plotting core and bottom X-axis track */
+  display: flex;
+  flex-direction: row;
+  z-index: 3; /* Positioned above grid lines and default bar layers to manage events */
+  pointer-events: none; /* Pass-through container boundaries */
+}
+
+.analytics-zone {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  flex: 1 1 0%; /* Default equal horizontal segment allocation */
+  pointer-events: auto; /* Isolate and capture local pointer vectors */
+  outline: none;
+  user-select: none;
+}
+
+/* Structural partition mapping the vertical bar bounds */
+.analytics-zone-plot-area {
+  position: relative;
+  width: 100%;
+  /* Reserves standard explicit bottom clearance matching the grid layer */
+  height: calc(100% - var(--graph-axis-offset)); 
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 0 calc(var(--graph-zone-gap) * 0.5);
+}
+
+/* Localized background injection bounding target for selection/hover visual states */
+.analytics-zone-interaction-bg {
+  position: absolute;
+  top: calc(var(--graph-padding) * -0.25);
+  left: calc(var(--graph-zone-gap) * 0.125);
+  right: calc(var(--graph-zone-gap) * 0.125);
+  bottom: calc(var(--graph-axis-offset) - 4px);
+  border-radius: var(--graph-radius-zone-bg);
+  background-color: transparent;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 1; /* Sits behind bars within the local execution stack context */
+  transition: opacity var(--graph-motion-duration-fast) var(--graph-motion-easing-standard),
+              background-color var(--graph-motion-duration-fast) var(--graph-motion-easing-standard),
+              box-shadow var(--graph-motion-duration-fast) var(--graph-motion-easing-standard);
+}
+
+/* X-Axis Fixed Horizontal Track Alignment */
+.analytics-x-axis-track {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: var(--graph-axis-offset);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 4;
+}
+
+.analytics-x-axis-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem;
+  color: var(--graph-text-muted);
+  font-size: var(--graph-font-axis-label-size);
+  font-weight: var(--graph-font-axis-label-weight);
+  white-space: nowrap;
+  transition: color var(--graph-motion-duration-fast) var(--graph-motion-easing-standard),
+              font-weight var(--graph-motion-duration-fast) var(--graph-motion-easing-standard);
+}
+
+/* Contextual structural offset for icons injected inside axis metadata labels */
+.analytics-x-axis-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  color: inherit;
+}
