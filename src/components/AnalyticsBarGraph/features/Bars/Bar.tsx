@@ -45,7 +45,10 @@ const BarComponent: React.FC<BarProps> = ({
       style={{
         '--bar-color': color,
         backgroundColor: 'var(--bar-color)',
-        pointerEvents: isHidden ? 'none' : 'auto'
+        pointerEvents: isHidden ? 'none' : 'auto',
+        flex: isStacked ? 'none' : 1,
+        width: '100%',
+        borderRadius: isStacked ? '0' : '4px 4px 0 0',
       } as React.CSSProperties}
       role="graphics-symbol"
       aria-label={`${data.label}: ${data.value}`}
