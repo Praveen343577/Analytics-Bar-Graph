@@ -74,3 +74,16 @@ export interface GraphTheme {
 
 export type ThemeCSSVarKey = `--graph-${string}`;
 export type ThemeTokenRecord = Record<ThemeCSSVarKey, string>;
+export type GraphThemeMode = 'light' | 'dark';
+
+export interface GraphThemeContextType {
+  theme: GraphThemeMode;
+  setTheme: (theme: GraphThemeMode) => void;
+}
+
+export interface GraphThemeProviderProps {
+  children: React.ReactNode;
+  defaultTheme?: GraphThemeMode;
+  theme?: GraphThemeMode;
+  onChange?: (theme: GraphThemeMode) => void;
+}
