@@ -73,7 +73,7 @@ const ZoneComponent: React.FC<ZoneProps> = ({
           display: 'flex',
           justifyContent: 'center',
           width: '100%',
-          padding: '0 var(--graph-zone-padding, 4px)',
+          padding: '0',
         }}
       >
         <ZoneInteractionLayer

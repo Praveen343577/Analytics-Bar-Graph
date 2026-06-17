@@ -9,7 +9,7 @@ import type { GraphLayoutMode, GraphThreshold } from './components/AnalyticsBarG
 // 1. Generate an initial baseline dataset representing months
 const INITIAL_DATA = generateMockGraphData({
   zoneCount: 12,
-  seriesNames: ['Earnings', 'Sales'],
+  seriesNames: ['Earnings', 'Sales', 'Profit'],
   min: 10,
   max: 400,
   zonePrefix: 'Month',
@@ -65,6 +65,7 @@ export const App: React.FC = () => {
           --graph-zone-selected-bg: rgba(0, 0, 0, 0.04);
           --graph-color-1: #3b82f6; /* Blue 500 */
           --graph-color-2: #bfdbfe; /* Blue 200 */
+          --graph-color-3: #60a5fa; /* Blue 400 */
           --graph-radius-lg: 16px;
         }
       `}</style>
@@ -123,12 +124,15 @@ export const App: React.FC = () => {
               // Aggregate values for the selected zones
               let earnTotal = 0;
               let salesTotal = 0;
+              let profitTotal = 0;
               
               selectedZones.forEach(zone => {
                 const earn = zone.series?.find(s => s.seriesKey === 'earnings')?.value || 0;
                 const sales = zone.series?.find(s => s.seriesKey === 'sales')?.value || 0;
+                const profit = zone.series?.find(s => s.seriesKey === 'profit')?.value || 0;
                 earnTotal += earn;
                 salesTotal += sales;
+                profitTotal += profit;
               });
 
               const count = selectedZones.length || 1; // Prevent division by zero
@@ -141,6 +145,7 @@ export const App: React.FC = () => {
                   <div style={{ display: 'flex', gap: '16px', fontSize: '0.875rem' }}>
                     <span>Avg Earning: <strong>${Math.round(earnTotal / count)}</strong></span>
                     <span>Avg Sales: <strong>${Math.round(salesTotal / count)}</strong></span>
+                    <span>Avg Profit: <strong>${Math.round(profitTotal / count)}</strong></span>
                   </div>
                 </div>
               );

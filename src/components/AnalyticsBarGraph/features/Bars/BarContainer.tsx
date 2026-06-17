@@ -49,7 +49,9 @@ export const BarContainer: React.FC<BarContainerProps> = ({
         justifyContent: 'flex-start',
         height: '100%',
         width: '100%',
-        gap: isStacked ? '0' : 'var(--graph-bar-gap, 4px)',
+        boxSizing: 'border-box',
+        padding: '0 20%', // Keeps bars contained and well-spaced within the zone
+        gap: isStacked ? '0' : 'var(--graph-bar-gap, 8px)',
       }}
     >
       {zone.series.map((seriesPoint) => {
