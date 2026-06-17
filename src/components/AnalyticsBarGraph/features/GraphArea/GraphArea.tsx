@@ -102,8 +102,8 @@ const GraphAreaComponent: React.FC<GraphAreaProps> = ({
   const overflowStyles = useMemo<React.CSSProperties>(() => {
     const isScrollable = overflow === 'scroll' || overflow === 'auto';
     return {
-      overflowX: isScrollable ? 'auto' : 'hidden',
-      overflowY: 'hidden',
+      overflowX: isScrollable ? 'auto' : 'visible', // Both must be visible to break bounds
+      overflowY: 'visible', // Must be visible to prevent tooltips from clipping
       // Enable smooth scrolling and hide scrollbar in some browsers while retaining functionality
       scrollbarWidth: isScrollable ? 'thin' : 'none',
     };

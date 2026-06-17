@@ -105,7 +105,47 @@ const ZoneInteractionLayerComponent: React.FC<ZoneInteractionLayerProps> = ({
           ? '0 0 0 var(--graph-focus-ring-width, 2px) var(--graph-zone-focus-ring, #3b82f6)'
           : 'none'
       }}
-    />
+    >
+      {isHovered && !isDisabled && (
+        <div
+          style={{
+            position: 'absolute',
+            bottom: '100%',
+            left: '50%',
+            transform: 'translateX(-50%)',
+            marginBottom: '8px',
+            backgroundColor: '#1e293b', // slate-800
+            color: '#f8fafc',
+            padding: '8px 12px',
+            borderRadius: '8px',
+            fontSize: '12px',
+            whiteSpace: 'nowrap',
+            zIndex: 100,
+            boxShadow: '0 10px 15px -3px rgba(0,0,0,0.2)',
+            pointerEvents: 'none',
+          }}
+        >
+          <div style={{ fontWeight: 600, marginBottom: '6px', fontSize: '13px' }}>{zone.label}</div>
+          {zone.series.map(s => (
+            <div key={s.seriesKey} style={{ display: 'flex', justifyContent: 'space-between', gap: '16px', marginTop: '4px' }}>
+              <span style={{ color: '#94a3b8' }}>{s.label}</span>
+              <span style={{ fontWeight: 500 }}>{s.value}</span>
+            </div>
+          ))}
+          {/* Caret pointing down */}
+          <div 
+            style={{ 
+              position: 'absolute', 
+              top: '100%', 
+              left: '50%', 
+              transform: 'translateX(-50%)', 
+              border: '6px solid transparent', 
+              borderTopColor: '#1e293b' 
+            }} 
+          />
+        </div>
+      )}
+    </div>
   );
 };
 

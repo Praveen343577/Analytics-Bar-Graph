@@ -44,11 +44,13 @@ const BarComponent: React.FC<BarProps> = ({
       }}
       style={{
         '--bar-color': color,
-        backgroundColor: 'var(--bar-color)',
+        background: `linear-gradient(180deg, var(--bar-color) 0%, rgba(255,255,255,0.1) 100%)`,
+        backgroundColor: 'var(--bar-color)', // Fallback
         pointerEvents: isHidden ? 'none' : 'auto',
         flex: isStacked ? 'none' : 1,
         width: '100%',
-        borderRadius: isStacked ? '0' : '4px 4px 0 0',
+        borderRadius: isStacked ? '0' : '6px 6px 0 0',
+        boxShadow: 'inset 0 2px 4px rgba(255,255,255,0.3)', // Premium inner glow
       } as React.CSSProperties}
       role="graphics-symbol"
       aria-label={`${data.label}: ${data.value}`}

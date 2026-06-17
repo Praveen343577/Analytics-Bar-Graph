@@ -57,15 +57,30 @@ export const BarContainer: React.FC<BarContainerProps> = ({
         const color = seriesColorMap[seriesPoint.seriesKey] || 'var(--graph-text-muted, #888)';
 
         return (
-          <Bar
+          <div
             key={seriesPoint.id}
-            data={seriesPoint}
-            maxValue={scaleMax}
-            color={color}
-            isHidden={isHidden}
-            isDimmed={isDimmed}
-            isStacked={isStacked}
-          />
+            style={{
+              flex: isStacked ? 'none' : 1,
+              width: '100%',
+              height: isStacked ? 'auto' : '100%',
+              position: 'relative',
+              borderRadius: isStacked ? '0' : '6px 6px 0 0',
+              backgroundColor: isStacked ? 'transparent' : 'var(--graph-grid-color, #f1f5f9)',
+              backgroundImage: isStacked ? 'none' : 'repeating-linear-gradient(45deg, transparent, transparent 4px, rgba(0,0,0,0.02) 4px, rgba(0,0,0,0.02) 8px)',
+              overflow: 'hidden',
+              display: 'flex',
+              alignItems: 'flex-end',
+            }}
+          >
+            <Bar
+              data={seriesPoint}
+              maxValue={scaleMax}
+              color={color}
+              isHidden={isHidden}
+              isDimmed={isDimmed}
+              isStacked={isStacked}
+            />
+          </div>
         );
       })}
     </div>
