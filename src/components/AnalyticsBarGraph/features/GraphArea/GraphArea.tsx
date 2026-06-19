@@ -98,29 +98,8 @@ const GraphAreaComponent: React.FC<GraphAreaProps> = ({
     return { scaleMax: calculatedScaleMax, ticks: calculatedTicks };
   }, [data, layout, hiddenSeriesKeys, thresholds]);
 
-  // 2. Determine container styles based on overflow mode
-  const overflowStyles = useMemo<React.CSSProperties>(() => {
-    const isScrollable = overflow === 'scroll' || overflow === 'auto';
-    return {
-      overflowX: isScrollable ? 'auto' : 'visible', // Both must be visible to break bounds
-      overflowY: 'visible', // Must be visible to prevent tooltips from clipping
-      // Enable smooth scrolling and hide scrollbar in some browsers while retaining functionality
-      scrollbarWidth: isScrollable ? 'thin' : 'none',
-    };
-  }, [overflow]);
-
   return (
-    <div 
-      className="analytics-graph-area"
-      style={{
-        display: 'flex',
-        flexDirection: 'row',
-        flex: 1,
-        width: '100%',
-        position: 'relative',
-        minHeight: 'var(--graph-min-height, 250px)',
-      }}
-    >
+    <div className="analytics-graph-area" data-layout={layout}>
       {/* Y-Axis Section */}
       <div 
         className="analytics-y-axis-wrapper"
@@ -136,42 +115,17 @@ const GraphAreaComponent: React.FC<GraphAreaProps> = ({
       </div>
 
       {/* Main Plot Section */}
-      <div 
-        className="analytics-plot-wrapper"
-        style={{
-          flex: 1,
-          position: 'relative',
-          display: 'flex',
-          flexDirection: 'column',
-          minWidth: 0, // Prevents flex child from blowing out parent width
-        }}
-      >
+      <div className="analytics-graph-core">
         {/* Absolute Background Layers (drawn relative to the plot height, excluding X-axis area) */}
         <div 
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 'var(--graph-x-axis-height, 40px)',
-            pointerEvents: 'none',
-          }}
+          className="analytics-grid"
         >
           <Grid ticks={ticks} scaleMax={scaleMax} />
           <ThresholdLayer thresholds={thresholds} scaleMax={scaleMax} />
         </div>
 
         {/* Scrollable/Flexible Zone Container */}
-        <div
-          className="analytics-zones-container"
-          style={{
-            display: 'flex',
-            flexDirection: 'row',
-            width: '100%',
-            height: '100%',
-            ...overflowStyles,
-          }}
-        >
+        <div className="analytics-zones-container">
           {data.map((zone) => (
             <Zone
               key={zone.id}

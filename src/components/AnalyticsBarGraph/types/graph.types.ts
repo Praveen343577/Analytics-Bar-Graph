@@ -3,7 +3,7 @@
 import React from 'react';
 
 export type GraphLayoutMode = 'grouped' | 'stacked';
-export type GraphOverflowMode = 'auto' | 'scroll' | 'hidden';
+export type GraphOverflowMode = 'auto' | 'scroll' | 'hidden' | 'visible' | 'fit' | 'compress';
 export type GraphSelectionMode = 'single' | 'multiple';
 
 export interface GraphSeriesData {

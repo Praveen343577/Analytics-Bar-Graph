@@ -41,15 +41,6 @@ const LegendComponent: React.FC<LegendProps> = ({ data, seriesColorMap }) => {
       className="analytics-legend-container"
       role="group"
       aria-label="Graph Legend"
-      style={{
-        display: 'flex',
-        flexWrap: 'wrap',
-        alignItems: 'center',
-        justifyContent: 'center', // Center aligned by default, can be overridden by CSS
-        gap: 'var(--graph-spacing-md, 16px)',
-        marginBottom: 'var(--graph-legend-margin-bottom, 16px)',
-        width: '100%',
-      }}
     >
       {uniqueSeries.map((series) => (
         <LegendSeries

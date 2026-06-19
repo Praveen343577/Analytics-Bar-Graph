@@ -54,19 +54,16 @@ export const App: React.FC = () => {
       {/* --- Global Theme overrides for the Graph --- */}
       <style>{`
         .premium-light-graph {
-          --graph-bg-base: #ffffff;
-          --graph-bg-surface: #ffffff;
+          --graph-bg: #ffffff;
           --graph-text-primary: #1e293b;
           --graph-text-secondary: #64748b;
-          --graph-border-color: #f1f5f9;
-          --graph-grid-color: #f1f5f9;
-          --graph-grid-color-strong: #e2e8f0;
+          --graph-text-muted: #94a3b8;
+          --graph-grid-line: #f1f5f9;
           --graph-zone-hover-bg: rgba(0, 0, 0, 0.02);
-          --graph-zone-selected-bg: rgba(0, 0, 0, 0.04);
-          --graph-color-1: #3b82f6; /* Blue 500 */
-          --graph-color-2: #bfdbfe; /* Blue 200 */
-          --graph-color-3: #60a5fa; /* Blue 400 */
-          --graph-radius-lg: 16px;
+          --graph-series-0: #3b82f6; /* Blue 500 */
+          --graph-series-1: #bfdbfe; /* Blue 200 */
+          --graph-series-2: #60a5fa; /* Blue 400 */
+          --graph-radius-container: 16px;
         }
       `}</style>
 
@@ -79,7 +76,7 @@ export const App: React.FC = () => {
       <div 
         className="premium-light-graph"
         style={{
-          backgroundColor: 'var(--graph-bg-base)',
+          backgroundColor: '#ffffff',
           borderRadius: '24px',
           padding: '32px',
           boxShadow: '0 20px 40px -10px rgba(0, 0, 0, 0.08)',
@@ -90,11 +87,12 @@ export const App: React.FC = () => {
           layout={layout}
           overflow="visible"
           thresholds={THRESHOLDS}
+          themeClass="premium-light-graph"
           
           // Custom Header rendering
           renderHeader={() => (
             <div>
-              <h2 style={{ margin: 0, fontSize: '1.5rem', fontWeight: 700, color: '#1e293b' }}>$22,430.00</h2>
+              <h2 className="analytics-header-title" style={{ margin: 0, fontSize: '1.5rem', fontWeight: 700 }}>$22,430.00</h2>
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginTop: '4px' }}>
                 <span style={{ 
                   display: 'inline-block', 
@@ -103,7 +101,7 @@ export const App: React.FC = () => {
                   borderRadius: '50%', 
                   backgroundColor: isConnected ? '#10b981' : '#ef4444' 
                 }} />
-                <span style={{ fontSize: '0.875rem', color: 'var(--graph-text-secondary)' }}>
+                <span className="analytics-header-subtitle">
                   {isConnected ? 'Stream Active' : 'Stream Paused'}
                 </span>
               </div>
@@ -115,7 +113,7 @@ export const App: React.FC = () => {
             try {
               if (!hasSelection) {
                 return (
-                  <div style={{ color: 'var(--graph-text-secondary)', fontSize: '0.875rem', textAlign: 'center' }}>
+                  <div className="analytics-text-secondary" style={{ fontSize: '0.875rem', textAlign: 'center' }}>
                     Click or drag across regions to view aggregate metrics.
                   </div>
                 );
@@ -155,23 +153,22 @@ export const App: React.FC = () => {
           }}
         >
           {/* Header Actions */}
-          <div style={{ display: 'flex', gap: '8px' }}>
+          <div className="analytics-actions-group">
             <button
+              className="analytics-action-button"
               onClick={() => setLayout(l => l === 'grouped' ? 'stacked' : 'grouped')}
-              style={actionBtnStyle}
             >
               Toggle Layout ({layout})
             </button>
             <button
+              className="analytics-action-button"
               onClick={isConnected ? stop : start}
-              style={{ ...actionBtnStyle, backgroundColor: isConnected ? 'rgba(239, 68, 68, 0.1)' : 'rgba(16, 185, 129, 0.1)' }}
             >
               {isConnected ? 'Pause Stream' : 'Resume Stream'}
             </button>
-            {/* FIXED: Using the reset function to clear the linting warning */}
             <button
+              className="analytics-action-button"
               onClick={reset}
-              style={actionBtnStyle}
             >
               Reset Data
             </button>
@@ -181,17 +178,4 @@ export const App: React.FC = () => {
 
     </div>
   );
-};
-
-// Simple inline styles for header buttons
-const actionBtnStyle: React.CSSProperties = {
-  background: 'var(--graph-bg-surface, #ffffff)',
-  border: '1px solid var(--graph-border-color, #e2e8f0)',
-  borderRadius: '6px',
-  padding: '6px 12px',
-  fontSize: '0.75rem',
-  fontWeight: 500,
-  color: 'var(--graph-text-primary, #64748b)',
-  cursor: 'pointer',
-  transition: 'all 0.15s ease',
 };

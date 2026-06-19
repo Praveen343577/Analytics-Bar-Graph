@@ -52,17 +52,7 @@ const AggregationRendererComponent: React.FC<AggregationRendererProps> = ({
   if (!content) return null;
 
   return (
-    <div 
-      className="analytics-footer-aggregation"
-      style={{
-        marginTop: 'var(--graph-spacing-lg, 24px)',
-        paddingTop: 'var(--graph-spacing-md, 16px)',
-        borderTop: '1px solid var(--graph-border-color, #e2e8f0)',
-        width: '100%',
-        display: 'flex',
-        flexDirection: 'column',
-      }}
-    >
+    <div className="analytics-footer-container">
       {content}
     </div>
   );

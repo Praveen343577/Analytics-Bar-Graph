@@ -68,7 +68,7 @@ const ZoneInteractionLayerComponent: React.FC<ZoneInteractionLayerProps> = ({
 
   return (
     <div
-      className="analytics-zone-interaction-layer"
+      className="analytics-zone-interaction-bg analytics-focus-target"
       role="button"
       tabIndex={isDisabled ? -1 : 0}
       aria-label={ariaLabel}
@@ -85,53 +85,27 @@ const ZoneInteractionLayerComponent: React.FC<ZoneInteractionLayerProps> = ({
       data-selected={isSelected}
       data-disabled={isDisabled}
       style={{
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
         cursor: isDisabled ? 'not-allowed' : 'pointer',
-        zIndex: 10, // Must sit above bars to capture mouse events globally within the zone bounds
-        borderRadius: 'var(--graph-radius-zone-background, 8px)',
-        backgroundColor: isSelected 
-          ? 'var(--graph-zone-selected-bg, rgba(15, 23, 42, 0.08))'
-          : isHovered 
-            ? 'var(--graph-zone-hover-bg, rgba(15, 23, 42, 0.04))'
-            : 'transparent',
-        transition: 'background-color var(--graph-transition-fast, 0.15s) ease',
-        outline: 'none',
-        // Manage focus ring via shadow to avoid altering layout dimensions
-        boxShadow: isHovered && !isDisabled && document.activeElement === document.body // Pseudo-focus-visible heuristic or rely on CSS classes
-          ? '0 0 0 var(--graph-focus-ring-width, 2px) var(--graph-zone-focus-ring, #3b82f6)'
-          : 'none'
+        pointerEvents: 'auto',
+        zIndex: 10,
       }}
     >
       {isHovered && !isDisabled && (
-        <div
-          style={{
-            position: 'absolute',
-            bottom: '100%',
-            left: '50%',
-            transform: 'translateX(-50%)',
-            marginBottom: '8px',
-            backgroundColor: '#1e293b', // slate-800
-            color: '#f8fafc',
-            padding: '8px 12px',
-            borderRadius: '8px',
-            fontSize: '12px',
-            whiteSpace: 'nowrap',
-            zIndex: 100,
-            boxShadow: '0 10px 15px -3px rgba(0,0,0,0.2)',
-            pointerEvents: 'none',
-          }}
-        >
-          <div style={{ fontWeight: 600, marginBottom: '6px', fontSize: '13px' }}>{zone.label}</div>
-          {zone.series.map(s => (
-            <div key={s.seriesKey} style={{ display: 'flex', justifyContent: 'space-between', gap: '16px', marginTop: '4px' }}>
-              <span style={{ color: '#94a3b8' }}>{s.label}</span>
-              <span style={{ fontWeight: 500 }}>{s.value}</span>
-            </div>
-          ))}
+        <div className="analytics-tooltip-container analytics-animate-tooltip-enter">
+          <div className="analytics-bg-tooltip analytics-radius-tooltip analytics-shadow-tooltip"
+            style={{
+              padding: '8px 12px',
+              whiteSpace: 'nowrap' as const,
+            }}
+          >
+            <div style={{ fontWeight: 600, marginBottom: '6px', fontSize: '13px' }}>{zone.label}</div>
+            {zone.series.map(s => (
+              <div key={s.seriesKey} className="analytics-text-tooltip-label" style={{ display: 'flex', justifyContent: 'space-between', gap: '16px', marginTop: '4px' }}>
+                <span>{s.label}</span>
+                <span className="analytics-text-tooltip-value">{s.value}</span>
+              </div>
+            ))}
+          </div>
           {/* Caret pointing down */}
           <div 
             style={{ 
@@ -140,7 +114,7 @@ const ZoneInteractionLayerComponent: React.FC<ZoneInteractionLayerProps> = ({
               left: '50%', 
               transform: 'translateX(-50%)', 
               border: '6px solid transparent', 
-              borderTopColor: '#1e293b' 
+              borderTopColor: 'var(--graph-tooltip-bg, #1e293b)' 
             }} 
           />
         </div>

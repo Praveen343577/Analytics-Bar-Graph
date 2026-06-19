@@ -25,15 +25,7 @@ const FooterComponent: React.FC<FooterProps> = ({ data, renderFooter }) => {
   if (!renderFooter) return null;
 
   return (
-    <footer 
-      className="analytics-graph-footer"
-      style={{
-        width: '100%',
-        display: 'block',
-        // Note: Top margin, padding, and borders are handled inside AggregationRenderer 
-        // to ensure spacing is only applied if the render prop actually returns content.
-      }}
-    >
+    <footer className="analytics-graph-footer">
       <AggregationRenderer 
         data={data} 
         renderFooter={renderFooter} 

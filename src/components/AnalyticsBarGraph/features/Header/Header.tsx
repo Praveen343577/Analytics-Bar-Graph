@@ -19,38 +19,14 @@ const HeaderComponent: React.FC<HeaderProps> = ({ renderHeader, children }) => {
   if (!renderHeader && !children) return null;
 
   return (
-    <div 
-      className="analytics-graph-header"
-      style={{
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        marginBottom: 'var(--graph-header-margin-bottom, 16px)',
-        minHeight: '32px', // Prevent layout jumps if content loads asynchronously
-        width: '100%',
-      }}
-    >
+    <div className="analytics-header">
       {/* Left side: Custom Title / Branding / Subtitles */}
-      <div 
-        className="analytics-header-content" 
-        style={{ 
-          flex: 1,
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-        }}
-      >
+      <div className="analytics-header-titles">
         {renderHeader ? renderHeader() : null}
       </div>
       
       {/* Right side: Interactive Actions (Clear Selection, Export, Toggles) */}
-      <div 
-        className="analytics-header-actions-container" 
-        style={{ 
-          flexShrink: 0, 
-          marginLeft: 'var(--graph-spacing-md, 16px)' 
-        }}
-      >
+      <div className="analytics-actions-group">
         {children}
       </div>
     </div>

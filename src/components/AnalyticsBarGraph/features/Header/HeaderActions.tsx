@@ -17,15 +17,7 @@ const HeaderActionsComponent: React.FC<HeaderActionsProps> = ({ children }) => {
   const hasSelection = selectedZoneIds.length > 0;
 
   return (
-    <div
-      className="analytics-header-actions"
-      style={{
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'flex-end',
-        gap: 'var(--graph-spacing-sm, 8px)',
-      }}
-    >
+    <div className="analytics-actions-group">
       {/* 
         Built-in Action: Clear Selection
         Automatically appears when the user has one or more zones selected.
@@ -34,22 +26,8 @@ const HeaderActionsComponent: React.FC<HeaderActionsProps> = ({ children }) => {
         <button
           type="button"
           onClick={clearSelection}
-          className="analytics-action-btn analytics-clear-selection-btn"
+          className="analytics-action-button analytics-clear-selection-btn"
           aria-label={`Clear ${selectedZoneIds.length} selected items`}
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            background: 'var(--graph-bg-surface, #ffffff)',
-            border: '1px solid var(--graph-border-color, #e2e8f0)',
-            borderRadius: 'var(--graph-radius-button, 6px)',
-            padding: '6px 12px',
-            fontSize: 'var(--graph-typography-sm, 0.75rem)',
-            fontWeight: 500,
-            color: 'var(--graph-text-secondary, #64748b)',
-            cursor: 'pointer',
-            transition: 'all var(--graph-transition-fast, 0.15s) ease',
-            boxShadow: 'var(--graph-shadow-sm, 0 1px 2px 0 rgba(0, 0, 0, 0.05))',
-          }}
         >
           Clear Selection ({selectedZoneIds.length})
         </button>

@@ -29,6 +29,7 @@ export const AnalyticsBarGraph: React.FC<AnalyticsBarGraphProps> = ({
   renderHeader,
   renderFooter,
   themeClass = '',
+  children,
 }) => {
   // Extract unique series keys and map them to a stable color palette
   const seriesColorMap = useMemo(() => {
@@ -50,21 +51,7 @@ export const AnalyticsBarGraph: React.FC<AnalyticsBarGraphProps> = ({
   // Graceful degradation for empty or invalid data
   if (!data || data.length === 0) {
     return (
-      <div 
-        className={`analytics-bar-graph-empty ${themeClass}`}
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          minHeight: '200px',
-          color: 'var(--graph-text-muted, #94a3b8)',
-          fontFamily: 'var(--graph-font-family, system-ui, sans-serif)',
-          fontSize: 'var(--graph-typography-sm, 0.875rem)',
-          background: 'var(--graph-bg-surface, #f8fafc)',
-          borderRadius: 'var(--graph-radius-lg, 12px)',
-          border: '1px dashed var(--graph-border-color, #cbd5e1)',
-        }}
-      >
+      <div className={`analytics-bar-graph-empty ${themeClass}`}>
         No dataset available
       </div>
     );
@@ -73,22 +60,14 @@ export const AnalyticsBarGraph: React.FC<AnalyticsBarGraphProps> = ({
   return (
     <GraphSelectionProvider>
       <div 
-        className={`analytics-bar-graph-root ${themeClass}`}
+        className={`analytics-bar-graph analytics-graph-container ${themeClass}`}
         data-layout={layout}
         data-overflow={overflow}
         data-selection-mode={selectionMode}
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          width: '100%',
-          height: '100%',
-          fontFamily: 'var(--graph-font-family, system-ui, sans-serif)',
-          color: 'var(--graph-text-primary, #0f172a)',
-          background: 'var(--graph-bg-base, transparent)',
-          position: 'relative',
-        }}
       >
-        <Header renderHeader={renderHeader} />
+        <Header renderHeader={renderHeader}>
+          {children}
+        </Header>
         
         <Legend 
           data={data} 

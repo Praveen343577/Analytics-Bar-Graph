@@ -22,15 +22,6 @@ const GridComponent: React.FC<GridProps> = ({ ticks, scaleMax }) => {
     <div 
       className="analytics-grid-layer"
       aria-hidden="true"
-      style={{
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
-        pointerEvents: 'none',
-        zIndex: 1, // Positioned behind bars (z-index: 2) and interaction layer
-      }}
     >
       {ticks.map((tick, index) => {
         const bottomPercent = (tick / safeScaleMax) * 100;
@@ -42,16 +33,7 @@ const GridComponent: React.FC<GridProps> = ({ ticks, scaleMax }) => {
             className="analytics-grid-line"
             data-baseline={isBaseLine}
             style={{
-              position: 'absolute',
-              left: 0,
-              right: 0,
               bottom: `${bottomPercent}%`,
-              borderBottomWidth: isBaseLine ? '2px' : 'var(--graph-grid-width, 1px)',
-              borderBottomStyle: isBaseLine ? 'solid' : ('var(--graph-grid-style, dashed)' as React.CSSProperties['borderBottomStyle']),
-              borderBottomColor: isBaseLine 
-                ? 'var(--graph-grid-color-strong, var(--graph-text-secondary, #94a3b8))' 
-                : 'var(--graph-grid-color, #e2e8f0)',
-              transform: 'translateY(50%)', // Align exact center of the stroke to the percentage mark
             }}
           />
         );

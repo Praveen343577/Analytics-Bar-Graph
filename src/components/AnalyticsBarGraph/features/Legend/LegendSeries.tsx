@@ -44,54 +44,24 @@ const LegendSeriesComponent: React.FC<LegendSeriesProps> = ({
   return (
     <button
       type="button"
-      className="analytics-legend-series"
+      className="analytics-legend-item"
       data-series={seriesKey}
       data-hidden={isHidden}
       onClick={handleToggle}
       onKeyDown={handleKeyDown}
       aria-pressed={!isHidden}
       aria-label={`Toggle visibility of ${label} series. Currently ${isHidden ? 'hidden' : 'visible'}.`}
-      style={{
-        display: 'flex',
-        alignItems: 'center',
-        gap: 'var(--graph-spacing-xs, 6px)',
-        background: 'transparent',
-        border: 'none',
-        padding: '4px 8px',
-        borderRadius: 'var(--graph-radius-sm, 4px)',
-        cursor: 'pointer',
-        opacity: isHidden ? 0.6 : 1,
-        transition: 'opacity var(--graph-transition-fast, 0.15s) ease, transform var(--graph-transition-fast, 0.15s) ease',
-        outline: 'none', // Focus is typically handled by a CSS class (e.g., .analytics-legend-series:focus-visible)
-      }}
       title={`Toggle visibility for ${label}`}
     >
       {/* Visual Color Swatch */}
       <span
-        className="analytics-legend-swatch"
+        className="analytics-legend-indicator"
         aria-hidden="true"
-        style={{
-          display: 'inline-block',
-          width: 'var(--graph-legend-swatch-size, 12px)',
-          height: 'var(--graph-legend-swatch-size, 12px)',
-          borderRadius: 'var(--graph-legend-swatch-radius, 3px)',
-          backgroundColor: isHidden ? 'var(--graph-text-muted, #cbd5e1)' : color,
-          transition: 'background-color var(--graph-transition-fast, 0.15s) ease',
-        }}
+        style={{ '--series-color': color } as React.CSSProperties}
       />
       
       {/* Series Label Name */}
-      <span
-        className="analytics-legend-label"
-        style={{
-          fontSize: 'var(--graph-typography-sm, 0.75rem)',
-          fontWeight: 500,
-          color: isHidden ? 'var(--graph-text-muted, #94a3b8)' : 'var(--graph-text-primary, #334155)',
-          textDecoration: isHidden ? 'line-through' : 'none',
-          transition: 'color var(--graph-transition-fast, 0.15s) ease',
-          whiteSpace: 'nowrap',
-        }}
-      >
+      <span className="analytics-legend-label">
         {label}
       </span>
     </button>

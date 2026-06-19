@@ -39,49 +39,16 @@ const XAxisContentComponent: React.FC<XAxisContentProps> = ({
       data-hovered={isHovered}
       data-selected={isSelected}
       data-dimmed={isDimmed}
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'flex-start',
-        gap: 'var(--graph-axis-gap, 4px)',
-        marginTop: 'var(--graph-axis-offset, 8px)',
-        opacity: isDimmed ? 0.4 : 1,
-        transition: 'opacity var(--graph-transition-duration-base, 0.2s) ease',
-        color: isSelected || isHovered
-          ? 'var(--graph-text-primary, #0f172a)' 
-          : 'var(--graph-text-secondary, #64748b)',
-        fontWeight: isSelected ? 'var(--graph-axis-label-weight-selected, 600)' : 'var(--graph-axis-label-weight, 400)',
-        fontSize: 'var(--graph-axis-label-size, 0.75rem)',
-        fontFamily: 'var(--graph-font-family, inherit)',
-        pointerEvents: 'none', // Prevents axis text from interfering with zone hover detection
-      }}
       aria-hidden="true" // Hidden from screen readers to prevent duplication (the interaction layer handles a11y)
     >
       {zone.icon && (
-        <div 
-          className="analytics-x-axis-icon"
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            color: 'inherit',
-          }}
-        >
+        <div className="analytics-x-axis-icon">
           {zone.icon}
         </div>
       )}
       
       <span 
-        className="analytics-x-axis-label"
-        style={{
-          textAlign: 'center',
-          maxWidth: '100%',
-          overflow: 'hidden',
-          textOverflow: 'ellipsis',
-          whiteSpace: 'nowrap',
-          padding: '0 4px',
-        }}
+        className="analytics-x-axis-label analytics-text-axis-label"
         title={zone.label} // Native tooltip for truncated labels
       >
         {zone.label}

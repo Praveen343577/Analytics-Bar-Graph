@@ -28,15 +28,8 @@ const YAxisComponent: React.FC<YAxisProps> = ({ ticks, scaleMax }) => {
 
   return (
     <div 
-      className="analytics-y-axis-container"
+      className="analytics-y-axis"
       aria-hidden="true" // Usually hidden from screen readers if a data table is provided as an alternative
-      style={{
-        position: 'relative',
-        height: '100%',
-        width: '100%',
-        display: 'flex',
-        flexDirection: 'column',
-      }}
     >
       {ticks.map((tick, index) => {
         const bottomPercent = (tick / safeScaleMax) * 100;
@@ -48,17 +41,7 @@ const YAxisComponent: React.FC<YAxisProps> = ({ ticks, scaleMax }) => {
             style={{
               position: 'absolute',
               bottom: `${bottomPercent}%`,
-              left: 0,
-              width: '100%',
               transform: 'translateY(50%)', // Vertically center the text on the exact percentage line
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'flex-end',
-              paddingRight: 'var(--graph-axis-offset, 12px)',
-              color: 'var(--graph-text-secondary, #64748b)',
-              fontSize: 'var(--graph-axis-label-size, 0.75rem)',
-              fontWeight: 'var(--graph-axis-label-weight, 500)',
-              lineHeight: 1,
             }}
           >
             {formatter.format(tick)}

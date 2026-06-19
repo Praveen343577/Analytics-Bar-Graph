@@ -52,30 +52,14 @@ const ZoneComponent: React.FC<ZoneProps> = ({
     <div
       className="analytics-zone"
       data-zone-id={zone.id}
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        height: '100%',
-        flex: '1 1 0', // Distribute available width equally among zones
-        minWidth: 'var(--graph-zone-min-width, 48px)', // Prevent severe squishing on small screens
-        position: 'relative',
-      }}
+      data-selected={isSelected}
+      data-disabled={!!zone.disabled}
     >
       {/* 
         Upper Area: The Plot Column 
         Contains the interaction overlay and the actual visual bars.
       */}
-      <div
-        className="analytics-zone-plot-area"
-        style={{
-          flex: 1,
-          position: 'relative',
-          display: 'flex',
-          justifyContent: 'center',
-          width: '100%',
-          padding: '0',
-        }}
-      >
+      <div className="analytics-zone-plot-area">
         <ZoneInteractionLayer
           zone={zone}
           isHovered={isHovered}
@@ -105,16 +89,7 @@ const ZoneComponent: React.FC<ZoneProps> = ({
         Lower Area: The X-Axis Label 
         Contains labels, icons, and status indicators.
       */}
-      <div
-        className="analytics-zone-axis-area"
-        style={{
-          flexShrink: 0,
-          height: 'var(--graph-x-axis-height, auto)',
-          minHeight: '40px', // Reserve space to prevent layout shift
-          display: 'flex',
-          justifyContent: 'center',
-        }}
-      >
+      <div className="analytics-x-axis-track">
         <XAxisContent
           zone={zone}
           isHovered={isHovered}
