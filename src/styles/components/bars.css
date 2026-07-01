@@ -25,8 +25,10 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  flex: 1 1 0%;
+  min-width: 0;
   width: 100%;
-  max-width: 32px;
+  max-width: 24px;
   /* Height injected strictly via inline CSS variables (percentage based 0-100) */
   height: calc(var(--bar-height, 0) * 1%); 
   min-height: 2px; /* Guarantees interaction target for zero/near-zero values */
@@ -38,6 +40,7 @@
 
 /* Stacked Layout Bar Geometry Overrides */
 .analytics-graph-area[data-layout="stacked"] .analytics-bar-wrapper {
+  flex: none;
   width: 100%;
   max-width: 48px;
   border-radius: 0;

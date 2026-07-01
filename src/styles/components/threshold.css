@@ -47,7 +47,7 @@
 /* Micro Badge Pinning Metrics */
 .analytics-threshold-badge {
   position: absolute;
-  right: 0;
+  right: -1rem;
   transform: translateY(-50%);
   padding: 0.125rem 0.375rem;
   font-size: calc(var(--graph-font-axis-label-size) - 1px);

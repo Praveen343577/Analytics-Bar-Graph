@@ -22,6 +22,7 @@ const GridComponent: React.FC<GridProps> = ({ ticks, scaleMax }) => {
     <div 
       className="analytics-grid-layer"
       aria-hidden="true"
+      style={{ width: '100%', height: '100%', position: 'absolute', top: 0, left: 0 }}
     >
       {ticks.map((tick, index) => {
         const bottomPercent = (tick / safeScaleMax) * 100;
@@ -33,6 +34,7 @@ const GridComponent: React.FC<GridProps> = ({ ticks, scaleMax }) => {
             className="analytics-grid-line"
             data-baseline={isBaseLine}
             style={{
+              position: 'absolute',
               bottom: `${bottomPercent}%`,
             }}
           />

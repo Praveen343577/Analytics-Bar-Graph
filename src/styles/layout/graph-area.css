@@ -24,6 +24,7 @@
   flex-grow: 1;
   width: 100%;
   min-height: 240px; 
+  margin-top: 2rem;
 }
 
 /* Y-Axis Layout */

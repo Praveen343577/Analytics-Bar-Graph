@@ -85,9 +85,9 @@ const GraphAreaComponent: React.FC<GraphAreaProps> = ({
     const normalizedTickSize = unroundedTickSize / magnitude;
     
     let niceTickSize;
-    if (normalizedTickSize < 1.5) niceTickSize = 1;
-    else if (normalizedTickSize < 3) niceTickSize = 2;
-    else if (normalizedTickSize < 7) niceTickSize = 5;
+    if (normalizedTickSize <= 1) niceTickSize = 1;
+    else if (normalizedTickSize <= 2) niceTickSize = 2;
+    else if (normalizedTickSize <= 5) niceTickSize = 5;
     else niceTickSize = 10;
     
     niceTickSize *= magnitude;
@@ -108,7 +108,7 @@ const GraphAreaComponent: React.FC<GraphAreaProps> = ({
           flexShrink: 0,
           position: 'relative',
           // Offset bottom to align with the bottom of the bars, leaving room for X-axis labels below
-          paddingBottom: 'var(--graph-x-axis-height, 40px)', 
+          paddingBottom: 'var(--graph-axis-offset)', 
         }}
       >
         <YAxis ticks={ticks} scaleMax={scaleMax} />

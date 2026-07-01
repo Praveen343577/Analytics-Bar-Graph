@@ -23,14 +23,14 @@
 
   /* Spacing */
   --graph-padding: 1.5rem;
-  --graph-zone-gap: 1.5rem;
-  --graph-bar-gap: 0.25rem;
-  --graph-axis-offset: 0.75rem;
+  --graph-zone-gap: 2rem;
+  --graph-bar-gap: 0.35rem;
+  --graph-axis-offset: 1.5rem;
   --graph-header-margin-bottom: 2rem;
   --graph-legend-margin-bottom: 1.5rem;
 
   /* Radius */
-  --graph-radius-bar-top: 6px;
+  --graph-radius-bar-top: 4px;
   --graph-radius-bar-bottom: 0px;
   --graph-radius-zone-bg: 12px;
   --graph-radius-tooltip: 8px;

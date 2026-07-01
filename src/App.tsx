@@ -80,6 +80,9 @@ export const App: React.FC = () => {
           borderRadius: '24px',
           padding: '32px',
           boxShadow: '0 20px 40px -10px rgba(0, 0, 0, 0.08)',
+          height: '520px',
+          display: 'flex',
+          flexDirection: 'column'
         }}
       >
         <AnalyticsBarGraph
